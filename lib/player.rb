@@ -13,6 +13,9 @@ class Player
   def gets_damage(damage)
     damage = damage.to_i
     @life_points = life_points - damage
+    if @life_points < 0 #Pour éviter que les points de vie passe en dessous de 0
+      @life_points = 0
+    end
   end
 
   def attacks(second_player)
@@ -59,17 +62,15 @@ class HumanPlayer < Player
     health_found = rand(1..6)
     if health_found == 1
     puts "Tu n'a rien trouvé"
-    if health_found > 2 && health_found < 5
+    elsif health_found > 2 && health_found < 5
     @life_points = @life_points + 50
     puts "Bravo, t'a trouvé 50 HP"
-    if health_found == 6
+    else health_found == 6
     @life_points = @life_points + 80
     puts "SUUUPER tu viens de choper 80 HP"
-    if @life_points > 100
-      @life_points == 100
-    end
-    end
-    end
+      if @life_points > 100
+        @life_points == 100
+      end
     end
   end
 end

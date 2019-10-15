@@ -4,8 +4,8 @@ Bundler.require
 require_relative 'lib/game'
 require_relative 'lib/player'
 
-player1 = Player.new("Laura")
-player2 = Player.new("Mathias")
+player1 = Player.new("Mathias")
+player2 = Player.new("Laura")
 
 puts "Voici l'état de chaque joueur :"
 player1.show_state
